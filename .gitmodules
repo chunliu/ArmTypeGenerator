@@ -1,0 +1,4 @@
+[submodule "src/jschema"]
+	path = src/jschema
+	url = https://github.com/chunliu/jschema.git
+	branch = ads
