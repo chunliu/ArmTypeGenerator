@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmPocoGenerator", "ArmPoco
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Json.Schema", "jschema\src\Json.Schema\Json.Schema.csproj", "{46E6CCC9-482B-4ECB-9866-05008C509D38}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Json.Schema.ToDotNet", "jschema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj", "{06C41DAF-F2C7-46C0-811C-E6C52669A927}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{46E6CCC9-482B-4ECB-9866-05008C509D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46E6CCC9-482B-4ECB-9866-05008C509D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46E6CCC9-482B-4ECB-9866-05008C509D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C41DAF-F2C7-46C0-811C-E6C52669A927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C41DAF-F2C7-46C0-811C-E6C52669A927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C41DAF-F2C7-46C0-811C-E6C52669A927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C41DAF-F2C7-46C0-811C-E6C52669A927}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

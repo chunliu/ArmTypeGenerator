@@ -1,0 +1,28 @@
+{
+  "resource": [
+    {
+      "kind": "BaseTypeHint",
+      "arguments": {
+        "baseTypeNames": [
+          "ResourceBase"
+        ]
+      }
+    }
+  ],
+  "location": [
+    {
+      "kind": "ReferenceTypeHint",
+      "arguments": {
+        "typeName": "string"
+      }
+    }
+  ],
+  "DeploymentTemplate.$schema": [
+    {
+      "kind": "PropertyNameHint",
+      "arguments": {
+        "dotNetPropertyName": "Schema"
+      }
+    }
+  ]
+}

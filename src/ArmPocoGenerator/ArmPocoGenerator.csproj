@@ -14,7 +14,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\jschema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj" />
     <ProjectReference Include="..\jschema\src\Json.Schema\Json.Schema.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CodeGenHints.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
