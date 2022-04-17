@@ -1,0 +1,53 @@
+{
+  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\experiments\\ArmResources\\ArmResources",
+  "rootClassName": "DeploymentTemplate",
+  "namespaceName": "AzureDesignStudio.Azure",
+  "forceOverwrite": true,
+  "excludedDefinitionNames": [
+    "proxyResourceBase",
+    "resourceBaseExternal",
+    "resourceLocations",
+    "resourceKind",
+    "resourcesWithSymbolicName",
+    "parameterTypes",
+    "resource"
+  ],
+  "hintDictionary": {
+    "resource": [
+      {
+        "kind": "ClassNameHint",
+        "arguments": {
+          "className": "ResourceBase"
+        }
+      }
+    ],
+    "location": [
+      {
+        "kind": "ReferenceTypeHint",
+        "arguments": {
+          "typeName": "string"
+        }
+      }
+    ],
+    "DeploymentTemplate.$schema": [
+      {
+        "kind": "PropertyNameHint",
+        "arguments": {
+          "dotNetPropertyName": "Schema"
+        }
+      }
+    ],
+    "ARMResourceBase.Type": [
+      {
+        "kind": "PropertyModifiersHint",
+        "arguments": {
+          "modifiers": [
+            "public",
+            "virtual"
+          ],
+          "onlyGet": true
+        }
+      }
+    ]
+  }
+}
