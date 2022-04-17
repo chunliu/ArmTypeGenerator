@@ -1,11 +1,9 @@
 {
   "resource": [
     {
-      "kind": "BaseTypeHint",
+      "kind": "ClassNameHint",
       "arguments": {
-        "baseTypeNames": [
-          "ResourceBase"
-        ]
+        "className": "ResourceBase"
       }
     }
   ],
@@ -22,6 +20,18 @@
       "kind": "PropertyNameHint",
       "arguments": {
         "dotNetPropertyName": "Schema"
+      }
+    }
+  ],
+  "ARMResourceBase.Type": [
+    {
+      "kind": "PropertyModifiersHint",
+      "arguments": {
+        "modifiers": [
+          "public",
+          "virtual"
+        ],
+        "onlyGet": true
       }
     }
   ]
