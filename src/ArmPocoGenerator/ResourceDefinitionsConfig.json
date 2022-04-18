@@ -1,0 +1,8 @@
+{
+  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\github\\AzureDesignStudio\\src\\AzureDesignStudio.AzureResources",
+  "namespaceName": "AzureDesignStudio.AzureResources",
+  "usingNamespaces": [
+    "AzureDesignStudio.AzureResources.Base"
+  ],
+  "forceOverwrite": true
+}

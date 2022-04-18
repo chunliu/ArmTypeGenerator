@@ -1,7 +1,8 @@
 {
-  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\experiments\\ArmResources\\ArmResources",
+  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\github\\AzureDesignStudio\\src\\AzureDesignStudio.AzureResources",
   "rootClassName": "DeploymentTemplate",
-  "namespaceName": "AzureDesignStudio.Azure",
+  "namespaceName": "AzureDesignStudio.AzureResources",
+  "namespaceDir": "Base",
   "forceOverwrite": true,
   "excludedDefinitionNames": [
     "proxyResourceBase",
