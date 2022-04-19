@@ -49,6 +49,18 @@
           "onlyGet": true
         }
       }
+    ],
+    "ARMResourceBase.ApiVersion": [
+      {
+        "kind": "PropertyModifiersHint",
+        "arguments": {
+          "modifiers": [
+            "public",
+            "virtual"
+          ],
+          "onlyGet": true
+        }
+      }
     ]
   }
 }

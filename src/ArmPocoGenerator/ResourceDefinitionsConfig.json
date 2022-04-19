@@ -4,5 +4,26 @@
   "usingNamespaces": [
     "AzureDesignStudio.AzureResources.Base"
   ],
-  "forceOverwrite": true
+  "forceOverwrite": true,
+  "hintDictionary": {
+    "ResourceDefinitions": [
+      {
+        "kind": "BaseTypeHint",
+        "arguments": {
+          "baseTypeNames": [
+            "ResourceBase"
+          ],
+          "baseTypePropsToIgnore": [
+            "name",
+            "location",
+            "tags"
+          ],
+          "baseTypePropsToOverride": [
+            "type",
+            "apiVersion"
+          ]
+        }
+      }
+    ]
+  }
 }
