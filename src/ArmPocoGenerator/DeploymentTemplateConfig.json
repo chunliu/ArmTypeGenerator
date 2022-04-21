@@ -1,5 +1,5 @@
 {
-  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\github\\AzureDesignStudio\\src\\AzureDesignStudio.AzureResources",
+  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\experiments\\ArmResources\\ArmResources",
   "rootClassName": "DeploymentTemplate",
   "namespaceName": "AzureDesignStudio.AzureResources",
   "namespaceDir": "Base",
@@ -11,7 +11,9 @@
     "resourceKind",
     "resourcesWithSymbolicName",
     "parameterTypes",
-    "resource"
+    "resource",
+    "resourcePlan",
+    "resourceSku"
   ],
   "hintDictionary": {
     "resource": [
@@ -46,7 +48,7 @@
             "public",
             "virtual"
           ],
-          "onlyGet": true
+          "noAccessor": true
         }
       }
     ],
@@ -58,7 +60,7 @@
             "public",
             "virtual"
           ],
-          "onlyGet": true
+          "noAccessor": true
         }
       }
     ]
