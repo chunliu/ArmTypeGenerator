@@ -1,5 +1,5 @@
 {
-  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\experiments\\ArmResources\\ArmResources",
+  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\github\\AzureDesignStudio.AzureResources\\src",
   "rootClassName": "DeploymentTemplate",
   "namespaceName": "AzureDesignStudio.AzureResources",
   "namespaceDir": "Base",
@@ -24,7 +24,7 @@
         }
       }
     ],
-    "location": [
+    "*.Location": [
       {
         "kind": "ReferenceTypeHint",
         "arguments": {

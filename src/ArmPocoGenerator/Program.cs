@@ -2,7 +2,7 @@
 using Microsoft.Json.Schema;
 using Microsoft.Json.Schema.ToDotNet;
 
-var config = File.ReadAllText("DeploymentTemplateConfig.json");
+var config = File.ReadAllText("Configs\\DeploymentTemplateConfig.json");
 var deploymentTemplateSettings = Helper.GetDMGSettings(config);
 
 var dtSchema = await SchemaReader.ReadSchema(
@@ -18,7 +18,7 @@ Console.WriteLine("Classes for deployment template are generated.");
 
 Console.WriteLine("Generating classes for resource definitions...");
 
-var rdConfig = File.ReadAllText("ResourceDefinitionsConfig.json");
+var rdConfig = File.ReadAllText("Configs\\ResourceDefinitionsConfig.json");
 var rdSettings = Helper.GetDMGSettings(rdConfig)!;
 var schemaUri = new Uri("https://schema.management.azure.com/schemas/2020-11-01/Microsoft.Network.json");
 

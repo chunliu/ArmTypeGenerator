@@ -1,5 +1,5 @@
 {
-  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\experiments\\ArmResources\\ArmResources",
+  "outputDirectory": "C:\\Users\\chunliu.FAREAST\\github\\AzureDesignStudio.AzureResources\\src",
   "namespaceName": "AzureDesignStudio.AzureResources",
   "usingNamespaces": [
     "AzureDesignStudio.AzureResources.Base"
@@ -55,6 +55,14 @@
             "type",
             "apiVersion"
           ]
+        }
+      }
+    ],
+    "VirtualNetworks.Resources": [
+      {
+        "kind": "ArrayTypeHint",
+        "arguments": {
+          "itemsTypeName": "ResourceBase"
         }
       }
     ],

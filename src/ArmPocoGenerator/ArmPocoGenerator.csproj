@@ -18,10 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DeploymentTemplateConfig.json">
+    <None Update="Configs\DeploymentTemplateConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ResourceDefinitionsConfig.json">
+    <None Update="Configs\ResourceDefinitionsConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
