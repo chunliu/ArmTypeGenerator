@@ -40,6 +40,116 @@
         }
       }
     ],
+    "DeploymentTemplate.Schema": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "1"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.ContentVersion": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.Metadata": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "3"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.ApiProfile": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "4"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.Parameters": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "5"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.Variables": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "6"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.Functions": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "7"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.Resources": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "8"
+          ]
+        }
+      }
+    ],
+    "DeploymentTemplate.Outputs": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "9"
+          ]
+        }
+      }
+    ],
+    "ARMResourceBase.Name": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "-6"
+          ]
+        }
+      }
+    ],
     "ARMResourceBase.Type": [
       {
         "kind": "PropertyModifiersHint",
@@ -49,6 +159,15 @@
             "virtual"
           ],
           "noAccessor": true
+        }
+      },
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "-5"
+          ]
         }
       }
     ],
@@ -61,6 +180,48 @@
             "virtual"
           ],
           "noAccessor": true
+        }
+      },
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "-4"
+          ]
+        }
+      }
+    ],
+    "ResourceBase.Location": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "-3"
+          ]
+        }
+      }
+    ],
+    "ResourceBase.Tags": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "-2"
+          ]
+        }
+      }
+    ],
+    "ARMResourceBase.DependsOn": [
+      {
+        "kind": "AttributeHint",
+        "arguments": {
+          "typeName": "JsonPropertyOrder",
+          "arguments": [
+            "-1"
+          ]
         }
       }
     ]
