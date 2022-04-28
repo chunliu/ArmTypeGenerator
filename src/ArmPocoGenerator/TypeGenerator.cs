@@ -91,6 +91,8 @@ namespace ArmTypeGenerator
             {
                 AnsiConsole.WriteException(ex);
             }
+
+            await Helper.MainFlow();
         }
 
         public static async Task GetRPSchemas()
