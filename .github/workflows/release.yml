@@ -38,19 +38,19 @@ jobs:
       uses: papeloto/action-zip@v1
       with:
         files: win/
-        dest: ArmTypeGenerator_win-x64.zip
-    - name: Zip win version
+        dest: ${{ github.workspace }}/ArmTypeGenerator-win-x64.zip
+    - name: Zip linux version
       uses: papeloto/action-zip@v1
       with:
         files: linux/
-        dest: ArmTypeGenerator_linux-x64.zip        
+        dest: ${{ github.workspace }}/ArmTypeGenerator-linux-x64.zip        
     - name: upload artifacts for debugging
       uses: actions/upload-artifact@v1
       with:
         name: my-artifact
         path: |
-          ${{ github.workspace }}/ArmTypeGenerator_win-x64.zip
-          ${{ github.workspace }}/ArmTypeGenerator_linux-x64.zip
+          ${{ github.workspace }}/ArmTypeGenerator-win-x64.zip
+          ${{ github.workspace }}/ArmTypeGenerator-linux-x64.zip
 
   release:
     if: startsWith(github.ref, 'refs/tags')
@@ -76,14 +76,14 @@ jobs:
       uses: papeloto/action-zip@v1
       with:
         files: win/
-        dest: ArmTypeGenerator_win-x64.zip
-    - name: Zip win version
+        dest: ${{ github.workspace }}/ArmTypeGenerator-win-x64.zip
+    - name: Zip linux version
       uses: papeloto/action-zip@v1
       with:
         files: linux/
-        dest: ArmTypeGenerator_linux-x64.zip    
+        dest: ${{ github.workspace }}/ArmTypeGenerator-linux-x64.zip   
     - name: Upload Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "ArmTypeGenerator_win-x64.zip,ArmTypeGenerator_linux-x64.zip"
+        artifacts: "ArmTypeGenerator-win-x64.zip,ArmTypeGenerator-linux-x64.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
