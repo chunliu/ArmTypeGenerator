@@ -1,0 +1,8 @@
+{
+  "rootSchema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json",
+  "outputDir": "C:\\Users\\chunliu.FAREAST\\experiments\\ArmResources\\ArmResources",
+  "includedRPSchemas": [
+    "Microsoft.Network",
+    "Microsoft.Sql"
+  ]
+}
