@@ -32,18 +32,18 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish win version
       run: dotnet publish --configuration Release --os win --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/win
-    - name: Publish linux version
-      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/linux    
     - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
         files: win/
-        dest: ${{ github.workspace }}/ArmTypeGenerator-win-x64.zip
+        dest: ArmTypeGenerator-win-x64.zip
+    - name: Publish linux version
+      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/linux
     - name: Zip linux version
       uses: papeloto/action-zip@v1
       with:
         files: linux/
-        dest: ${{ github.workspace }}/ArmTypeGenerator-linux-x64.zip        
+        dest: ArmTypeGenerator-linux-x64.zip        
     - name: upload artifacts for debugging
       uses: actions/upload-artifact@v1
       with:
@@ -68,18 +68,18 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish win version
       run: dotnet publish --configuration Release --os win --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/win
-    - name: Publish linux version
-      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/linux      
     - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
         files: win/
-        dest: ${{ github.workspace }}/ArmTypeGenerator-win-x64.zip
+        dest: ArmTypeGenerator-win-x64.zip
+    - name: Publish linux version
+      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/linux      
     - name: Zip linux version
       uses: papeloto/action-zip@v1
       with:
         files: linux/
-        dest: ${{ github.workspace }}/ArmTypeGenerator-linux-x64.zip   
+        dest: ArmTypeGenerator-linux-x64.zip   
     - name: Upload Release
       uses: ncipollo/release-action@v1
       with:
