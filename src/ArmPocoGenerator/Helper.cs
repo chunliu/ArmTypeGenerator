@@ -1,9 +1,9 @@
-﻿using ArmPocoGenerator.Models;
+﻿using ArmTypeGenerator.Models;
 using Microsoft.Json.Schema.ToDotNet;
 using Spectre.Console;
 using System.Text.Json;
 
-namespace ArmPocoGenerator
+namespace ArmTypeGenerator
 {
     internal static class Helper
     {
@@ -51,13 +51,13 @@ namespace ArmPocoGenerator
             switch (selectedOption)
             {
                 case 0:
-                    await ArmTypeGenerator.GenerateTypesForDeploymentTemplate();
+                    await TypeGenerator.GenerateTypesForDeploymentTemplate();
                     break;
                 case 1:
-                    await ArmTypeGenerator.GetRPSchemas();
+                    await TypeGenerator.GetRPSchemas();
                     break;
                 case 2:
-                    await ArmTypeGenerator.GenerateTypesForResourceProviders();
+                    await TypeGenerator.GenerateTypesForResourceProviders();
                     break;
                 case 3:
                 default:

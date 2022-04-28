@@ -1,4 +1,4 @@
-﻿using ArmPocoGenerator;
+﻿using ArmTypeGenerator;
 using Spectre.Console;
 
 Helper.LoadAppConfiguration();

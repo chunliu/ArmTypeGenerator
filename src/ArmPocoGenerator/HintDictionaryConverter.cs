@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ArmPocoGenerator
+namespace ArmTypeGenerator
 {
     public class HintDictionaryConverter : JsonConverter<HintDictionary>
     {

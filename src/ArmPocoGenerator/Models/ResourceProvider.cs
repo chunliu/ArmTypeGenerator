@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ArmPocoGenerator.Models
+namespace ArmTypeGenerator.Models
 {
     internal class ResourceProvider
     {

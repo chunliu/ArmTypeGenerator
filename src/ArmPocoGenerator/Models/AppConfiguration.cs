@@ -1,4 +1,4 @@
-﻿namespace ArmPocoGenerator.Models
+﻿namespace ArmTypeGenerator.Models
 {
     internal class AppConfiguration
     {

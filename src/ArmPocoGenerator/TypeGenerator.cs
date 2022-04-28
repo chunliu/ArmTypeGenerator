@@ -1,12 +1,12 @@
-﻿using ArmPocoGenerator.Models;
+﻿using ArmTypeGenerator.Models;
 using Microsoft.Json.Schema;
 using Microsoft.Json.Schema.ToDotNet;
 using Spectre.Console;
 using System.Text.Json;
 
-namespace ArmPocoGenerator
+namespace ArmTypeGenerator
 {
-    internal static class ArmTypeGenerator
+    internal static class TypeGenerator
     {
         public static async Task GenerateTypesForDeploymentTemplate()
         {
@@ -87,7 +87,7 @@ namespace ArmPocoGenerator
                         });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 AnsiConsole.WriteException(ex);
             }
@@ -132,8 +132,8 @@ namespace ArmPocoGenerator
                         }
                         ctx.Refresh();
 
-                    // Merge 2 lists
-                    outputList.AddRange(rpList);
+                        // Merge 2 lists
+                        outputList.AddRange(rpList);
                         outputList.AddRange(agList);
                     });
 
@@ -154,7 +154,7 @@ namespace ArmPocoGenerator
         {
             var list = new List<ResourceProvider>();
 
-            foreach(var reference in referenceList)
+            foreach (var reference in referenceList)
             {
                 var rp = new ResourceProvider
                 {
@@ -169,7 +169,7 @@ namespace ArmPocoGenerator
 
             var result = new List<ResourceProvider>();
 
-            foreach(var group in list.OrderByDescending(s => s.VersionDate).GroupBy(r => r.Name).ToList())
+            foreach (var group in list.OrderByDescending(s => s.VersionDate).GroupBy(r => r.Name).ToList())
             {
                 result.Add(group.First());
             }
