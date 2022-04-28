@@ -45,7 +45,7 @@ jobs:
         files: linux/
         dest: ArmTypeGenerator-linux-x64.zip        
     - name: upload artifacts for debugging
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: my-artifact
         path: ${{ github.workspace }}/*.zip
