@@ -41,10 +41,10 @@ namespace ArmTypeGenerator
                     })
                     .UseConverter(opt => opt switch
                     {
-                        0 => "Generate types for Deployment Template",
-                        1 => "Get latest json schemas for RPs",
-                        2 => "Gererate types for RPs",
-                        3 => "Exit",
+                        0 => "1. Generate types for Deployment Template",
+                        1 => "2. Get latest json schemas for RPs",
+                        2 => "3. Gererate types for RPs",
+                        3 => "4. Exit",
                         _ => ""
                     }));
 
