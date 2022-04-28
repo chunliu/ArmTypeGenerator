@@ -31,24 +31,26 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish win version
-      run: dotnet publish --configuration Release --os win --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
+      run: dotnet publish --configuration Release --os win --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/win
     - name: Publish linux version
-      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release      
+      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/linux    
     - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
-        files: release/win-x64/
+        files: win/
         dest: ArmTypeGenerator_win-x64.zip
     - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
-        files: release/linux-x64/
+        files: linux/
         dest: ArmTypeGenerator_linux-x64.zip        
     - name: upload artifacts for debugging
       uses: actions/upload-artifact@v1
       with:
         name: my-artifact
-        path: ${{ github.workspace }}/*.zip
+        path: |
+          ${{ github.workspace }}/ArmTypeGenerator_win-x64.zip
+          ${{ github.workspace }}/ArmTypeGenerator_linux-x64.zip
 
   release:
     if: startsWith(github.ref, 'refs/tags')
@@ -67,18 +69,18 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish win version
-      run: dotnet publish --configuration Release --os win --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
+      run: dotnet publish --configuration Release --os win --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/win
     - name: Publish linux version
-      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release      
+      run: dotnet publish --configuration Release --os linux --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/linux      
     - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
-        files: release/win-x64/
+        files: win/
         dest: ArmTypeGenerator_win-x64.zip
     - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
-        files: release/linux-x64/
+        files: linux/
         dest: ArmTypeGenerator_linux-x64.zip    
     - name: Upload Release
       uses: ncipollo/release-action@v1
