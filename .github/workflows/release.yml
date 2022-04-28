@@ -30,18 +30,25 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Publish
-      run: dotnet publish --configuration Release --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
-    - name: Zip Release
+    - name: Publish win version
+      run: dotnet publish --configuration Release --os win --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
+    - name: Publish linux version
+      run: dotnet publish --configuration Release --os linux --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release      
+    - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
-        files: release/
-        dest: ArmTypeGenerator.zip
+        files: release/win-x64/
+        dest: ArmTypeGenerator_win-x64.zip
+    - name: Zip win version
+      uses: papeloto/action-zip@v1
+      with:
+        files: release/linux-x64/
+        dest: ArmTypeGenerator_linux-x64.zip        
     - name: upload artifacts for debugging
       uses: actions/upload-artifact@v1
       with:
         name: my-artifact
-        path: ${{ github.workspace }}/ArmTypeGenerator.zip
+        path: ${{ github.workspace }}/*.zip
 
   release:
     if: startsWith(github.ref, 'refs/tags')
@@ -59,15 +66,22 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Publish
-      run: dotnet publish --configuration Release --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
-    - name: Zip Release
+    - name: Publish win version
+      run: dotnet publish --configuration Release --os win --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
+    - name: Publish linux version
+      run: dotnet publish --configuration Release --os linux --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release      
+    - name: Zip win version
       uses: papeloto/action-zip@v1
       with:
-        files: release/
-        dest: ArmTypeGenerator.zip
+        files: release/win-x64/
+        dest: ArmTypeGenerator_win-x64.zip
+    - name: Zip win version
+      uses: papeloto/action-zip@v1
+      with:
+        files: release/linux-x64/
+        dest: ArmTypeGenerator_linux-x64.zip    
     - name: Upload Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "ArmTypeGenerator.zip"
+        artifacts: "ArmTypeGenerator_win-x64.zip,ArmTypeGenerator_linux-x64.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
