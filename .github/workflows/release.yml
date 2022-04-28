@@ -56,7 +56,7 @@ jobs:
       with:
         type: 'zip'
         filename: 'ArmTypeGenerator.zip'
-        path: './build'
+        path: './release'
     - name: Upload Release
       uses: ncipollo/release-action@v1
       with:
