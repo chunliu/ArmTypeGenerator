@@ -31,13 +31,14 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish --configuration Release --no-restore --version-suffix $GITHUB_RUN_NUMBER --output release
-    - name: Archive Release
+      run: dotnet publish --configuration Release --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
+    - name: Zip Release
       uses: papeloto/action-zip@v1
       with:
         files: release/
         dest: ArmTypeGenerator.zip
-    - uses: actions/upload-artifact@v1
+    - name: upload artifacts for debugging
+      uses: actions/upload-artifact@v1
       with:
         name: my-artifact
         path: ${{ github.workspace }}/ArmTypeGenerator.zip
@@ -59,8 +60,8 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish --configuration Release --no-restore --version-suffix $GITHUB_RUN_NUMBER --output release
-    - name: Archive Release
+      run: dotnet publish --configuration Release --no-restore --version-suffix $GITHUB_RUN_NUMBER --output ${{ github.workspace }}/release
+    - name: Zip Release
       uses: papeloto/action-zip@v1
       with:
         files: release/
