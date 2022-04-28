@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmTypeGenerator", "ArmPocoGenerator\ArmTypeGenerator.csproj", "{A605431E-DAD8-416B-9EDD-24E2A25BDEA4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Json.Schema", "jschema\src\Json.Schema\Json.Schema.csproj", "{46E6CCC9-482B-4ECB-9866-05008C509D38}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Json.Schema.ToDotNet", "jschema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj", "{06C41DAF-F2C7-46C0-811C-E6C52669A927}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmTypeGenerator", "ArmTypeGenerator\ArmTypeGenerator.csproj", "{64EC6AC7-3F6D-4783-B0E8-EEF1D55E6489}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A605431E-DAD8-416B-9EDD-24E2A25BDEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A605431E-DAD8-416B-9EDD-24E2A25BDEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A605431E-DAD8-416B-9EDD-24E2A25BDEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A605431E-DAD8-416B-9EDD-24E2A25BDEA4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46E6CCC9-482B-4ECB-9866-05008C509D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46E6CCC9-482B-4ECB-9866-05008C509D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46E6CCC9-482B-4ECB-9866-05008C509D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{06C41DAF-F2C7-46C0-811C-E6C52669A927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C41DAF-F2C7-46C0-811C-E6C52669A927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C41DAF-F2C7-46C0-811C-E6C52669A927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64EC6AC7-3F6D-4783-B0E8-EEF1D55E6489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64EC6AC7-3F6D-4783-B0E8-EEF1D55E6489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64EC6AC7-3F6D-4783-B0E8-EEF1D55E6489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64EC6AC7-3F6D-4783-B0E8-EEF1D55E6489}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
