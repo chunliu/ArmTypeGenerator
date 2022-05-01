@@ -1,14 +1,18 @@
 ﻿using ArmTypeGenerator.Models;
 using Microsoft.Json.Schema;
 using Microsoft.Json.Schema.ToDotNet;
+using Microsoft.Json.Schema.ToDotNet.Hints;
 using Spectre.Console;
 using System.Text.Json;
+using System.Text.RegularExpressions;
+using System;
 
 namespace ArmTypeGenerator
 {
     internal static class TypeGenerator
     {
-        public static async Task GenerateTypesForDeploymentTemplate()
+        private static readonly Regex s_childResourceRegex = new(@"(?<className>.+)_childResource$");
+        internal static async Task GenerateTypesForDeploymentTemplate()
         {
             try
             {
@@ -47,7 +51,7 @@ namespace ArmTypeGenerator
             await Helper.MainFlow();
         }
 
-        public static async Task GenerateTypesForResourceProviders()
+        internal static async Task GenerateTypesForResourceProviders()
         {
             try
             {
@@ -81,6 +85,8 @@ namespace ArmTypeGenerator
                             ctx.Spinner(Spinner.Known.Star);
                             ctx.SpinnerStyle(Style.Parse("green"));
 
+                            PrepareDMGSettingsForResourceDefinitions(rdSchema, ref rpSettings);
+
                             var rdGenerator = new DataModelGenerator(rpSettings);
                             rdGenerator.GenerateClassesForResourceDefinitions(rdSchema);
                             AnsiConsole.MarkupLine($"[green]Types for {rp.Name} are generated.[/]");
@@ -94,8 +100,36 @@ namespace ArmTypeGenerator
 
             await Helper.MainFlow();
         }
+        internal static string ToCamelCase(this string s)
+        {
+            return string.Concat(s[0].ToString().ToLowerInvariant(), s.AsSpan(1));
+        }
 
-        public static async Task GetRPSchemas()
+        private static void PrepareDMGSettingsForResourceDefinitions(JsonSchema rdSchema, ref DataModelGeneratorSettings dmgSettings)
+        {
+            var excludedDefinitions = new List<string>();
+            foreach (var definition in rdSchema.Definitions)
+            {
+                Match match = s_childResourceRegex.Match(definition.Key);
+                if (match.Success)
+                {
+                    excludedDefinitions.Add(definition.Key);
+                    var className = match.Groups["className"].Captures[0].Value;
+                    ClassNameHint classNameHint = new(className.ToCamelCase());
+                    dmgSettings.HintDictionary.Add(definition.Key, new List<CodeGenHint> { classNameHint }.ToArray());
+                }
+            }
+            if (dmgSettings.ExcludedDefinitionNames?.Count > 0)
+            {
+                dmgSettings.ExcludedDefinitionNames.ToList().AddRange(excludedDefinitions);
+            }
+            else
+            {
+                 dmgSettings.ExcludedDefinitionNames = excludedDefinitions;
+            }
+        }
+
+        internal static async Task GetRPSchemas()
         {
             try
             {
