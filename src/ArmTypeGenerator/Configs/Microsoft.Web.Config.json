@@ -1,0 +1,36 @@
+{
+  "namespaceName": "AzureDesignStudio.AzureResources",
+  "usingNamespaces": [
+    "AzureDesignStudio.AzureResources.Base"
+  ],
+  "forceOverwrite": true,
+  "hintDictionary": {
+    "ResourceDefinitions": [
+      {
+        "kind": "BaseTypeHint",
+        "arguments": {
+          "baseTypeNames": [
+            "ResourceBase"
+          ],
+          "baseTypePropsToIgnore": [
+            "name",
+            "location",
+            "tags"
+          ],
+          "baseTypePropsToOverride": [
+            "type",
+            "apiVersion"
+          ]
+        }
+      }
+    ],
+    "Sites.Resources": [
+      {
+        "kind": "ArrayTypeHint",
+        "arguments": {
+          "itemsTypeName": "ResourceBase"
+        }
+      }
+    ]
+  }
+}
