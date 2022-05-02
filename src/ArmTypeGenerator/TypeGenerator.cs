@@ -5,7 +5,6 @@ using Microsoft.Json.Schema.ToDotNet.Hints;
 using Spectre.Console;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using System;
 
 namespace ArmTypeGenerator
 {
@@ -58,7 +57,10 @@ namespace ArmTypeGenerator
                 var rpList = ReadRPSchemaList();
                 foreach (var rp in rpList)
                 {
-                    var rpConfig = File.ReadAllText($"Configs\\{rp.Name}.Config.json");
+                    var rpConfig = File.Exists($"Configs\\{rp.Name}.Config.json") 
+                        ? File.ReadAllText($"Configs\\{rp.Name}.Config.json")
+                        : File.ReadAllText("Configs\\ResourceDefinitionConfig.json");
+
                     var rpSettings = Helper.GetDMGSettings(rpConfig);
                     if (rpSettings == null)
                         throw new Exception("Failed to get the DataModelGeneratorSettings!");

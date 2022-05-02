@@ -27,7 +27,7 @@
     <None Update="Configs\Microsoft.Network.Config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Configs\Microsoft.Sql.Config.json">
+    <None Update="Configs\ResourceDefinitionConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
