@@ -31,6 +31,22 @@
           "itemsTypeName": "ResourceBase"
         }
       }
+    ],
+    "SitesConfig.Properties": [
+      {
+        "kind": "ReferenceTypeHint",
+        "arguments": {
+          "typeName": "object"
+        }
+      }
+    ],
+    "SitesSlotsConfig.Properties": [
+      {
+        "kind": "ReferenceTypeHint",
+        "arguments": {
+          "typeName": "object"
+        }
+      }
     ]
   }
 }
