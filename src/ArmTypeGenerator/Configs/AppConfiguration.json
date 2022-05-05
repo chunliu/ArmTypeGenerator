@@ -1,8 +1,11 @@
 {
   "rootSchema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json",
   "outputDir": "<The directory for the output of generated types>",
+  "copyRight": "// Licensed under the MIT License.  See LICENSE in the project root for license information.\n\r",
   "includedRPSchemas": [
     "Microsoft.Network",
-    "Microsoft.Sql"
+    "Microsoft.Sql",
+    "Microsoft.Web",
+    "Microsoft.Storage"
   ]
 }

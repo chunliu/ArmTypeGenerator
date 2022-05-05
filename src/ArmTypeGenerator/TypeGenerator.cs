@@ -21,6 +21,7 @@ namespace ArmTypeGenerator
                     throw new Exception("Failed to get the DataModelGeneratorSettings!");
                 // Get output dir from the app configurations.
                 deploymentTemplateSettings.OutputDirectory = Helper.AppConfiguration.OutputDir;
+                deploymentTemplateSettings.CopyrightNotice = Helper.AppConfiguration.CopyRight;
 
                 await AnsiConsole.Status()
                     .StartAsync("Generating types...", async ctx =>
@@ -66,6 +67,7 @@ namespace ArmTypeGenerator
                         throw new Exception("Failed to get the DataModelGeneratorSettings!");
                     // Get output dir from the app configurations.
                     rpSettings.OutputDirectory = Helper.AppConfiguration.OutputDir;
+                    rpSettings.CopyrightNotice = Helper.AppConfiguration.CopyRight;
 
                     var confirm = AnsiConsole.Confirm($"Generate types for {rp.Name}?");
                     if (!confirm)
