@@ -31,6 +31,45 @@
           "itemsTypeName": "ResourceBase"
         }
       }
+    ],
+    "applicationRule": [
+      {
+        "kind": "BaseTypeHint",
+        "arguments": {
+          "baseTypeNames": [
+            "FirewallPolicyRule"
+          ],
+          "baseTypePropsToIgnore": [
+            "ruleType"
+          ]
+        }
+      }
+    ],
+    "natRule": [
+      {
+        "kind": "BaseTypeHint",
+        "arguments": {
+          "baseTypeNames": [
+            "FirewallPolicyRule"
+          ],
+          "baseTypePropsToIgnore": [
+            "ruleType"
+          ]
+        }
+      }
+    ],
+    "networkRule": [
+      {
+        "kind": "BaseTypeHint",
+        "arguments": {
+          "baseTypeNames": [
+            "FirewallPolicyRule"
+          ],
+          "baseTypePropsToIgnore": [
+            "ruleType"
+          ]
+        }
+      }
     ]
   }
 }
