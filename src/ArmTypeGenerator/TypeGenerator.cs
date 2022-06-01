@@ -117,7 +117,9 @@ namespace ArmTypeGenerator
                 Match match = s_childResourceRegex.Match(definition.Key);
                 if (match.Success)
                 {
-                    excludedDefinitions.Add(definition.Key);
+                    if (!(dmgSettings.IncludedChildResources?.Contains(definition.Key) ?? false))
+                        excludedDefinitions.Add(definition.Key);
+
                     var className = match.Groups["className"].Captures[0].Value;
                     ClassNameHint classNameHint = new(className.ToCamelCase());
                     dmgSettings.HintDictionary.Add(definition.Key, new List<CodeGenHint> { classNameHint }.ToArray());

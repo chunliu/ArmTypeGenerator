@@ -24,6 +24,9 @@
     <None Update="Configs\DeploymentTemplateConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Configs\Microsoft.Compute.Config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Configs\Microsoft.Network.Config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

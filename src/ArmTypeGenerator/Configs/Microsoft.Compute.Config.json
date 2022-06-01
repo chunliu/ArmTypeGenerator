@@ -1,0 +1,48 @@
+{
+  "namespaceName": "AzureDesignStudio.AzureResources",
+  "usingNamespaces": [
+    "AzureDesignStudio.AzureResources.Base"
+  ],
+  "forceOverwrite": true,
+  "includedChildResources": [
+    "virtualMachines_extensions_childResource",
+    "virtualMachineScaleSets_extensions_childResource"
+  ],
+  "hintDictionary": {
+    "ResourceDefinitions": [
+      {
+        "kind": "BaseTypeHint",
+        "arguments": {
+          "baseTypeNames": [
+            "ResourceBase"
+          ],
+          "baseTypePropsToIgnore": [
+            "name",
+            "location",
+            "tags"
+          ],
+          "baseTypePropsToOverride": [
+            "type",
+            "apiVersion"
+          ]
+        }
+      }
+    ],
+    "VirtualMachines.Resources": [
+      {
+        "kind": "ArrayTypeHint",
+        "arguments": {
+          "itemsTypeName": "object"
+        }
+      }
+    ],
+    "VirtualMachineScaleSets.Resources": [
+      {
+        "kind": "ArrayTypeHint",
+        "arguments": {
+          "itemsTypeName": "object"
+        }
+      }
+    ]
+  }
+}
