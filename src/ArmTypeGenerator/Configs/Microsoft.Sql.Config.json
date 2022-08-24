@@ -4,10 +4,6 @@
     "AzureDesignStudio.AzureResources.Base"
   ],
   "forceOverwrite": true,
-  "includedChildResources": [
-    "virtualMachines_extensions_childResource",
-    "virtualMachineScaleSets_extensions_childResource"
-  ],
   "hintDictionary": {
     "ResourceDefinitions": [
       {
@@ -28,31 +24,19 @@
         }
       }
     ],
-    "VirtualMachines.Resources": [
+    "Servers.Resources": [
       {
         "kind": "ArrayTypeHint",
         "arguments": {
-          "itemsTypeName": "object"
+          "itemsTypeName": "ResourceBase"
         }
       }
     ],
-    "VirtualMachineScaleSets.Resources": [
+    "ServersDatabases.Resources": [
       {
         "kind": "ArrayTypeHint",
         "arguments": {
-          "itemsTypeName": "object"
-        }
-      }
-    ],
-    "NetworkProfile.NetworkApiVersion": [
-      {
-        "kind": "PropertyModifiersHint",
-        "arguments": {
-          "modifiers": [
-            "public"
-          ],
-          "onlyGet": true,
-          "noAccessor": true
+          "itemsTypeName": "ResourceBase"
         }
       }
     ]

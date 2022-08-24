@@ -30,6 +30,9 @@
     <None Update="Configs\Microsoft.Network.Config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Configs\Microsoft.Sql.Config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Configs\Microsoft.Storage.Config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -6,6 +6,8 @@
     "Microsoft.Network",
     "Microsoft.Sql",
     "Microsoft.Web",
-    "Microsoft.Storage"
+    "Microsoft.Storage",
+    "Microsoft.ApiManagement",
+    "Microsoft.Compute"
   ]
 }
