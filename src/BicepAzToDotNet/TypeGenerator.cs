@@ -5,10 +5,11 @@ namespace BicepAzToDotNet
 {
     public abstract class TypeGenerator
     {
-        protected TypeGenerator(string typeName, TypeBase typeBase)
+        protected TypeGenerator(string typeName, ObjectType resourceType, AdditionalTypeRequiredDelegate addtionalTypeRequired)
         {
             TypeName = typeName.ToPascalCase();
-            TypeBase = typeBase;
+            ResourceType = resourceType;
+            _addtionalTypeRequired = addtionalTypeRequired;
         }
         protected string TypeName { get; private set; } = null!;
 
@@ -18,10 +19,14 @@ namespace BicepAzToDotNet
         protected BaseTypeDeclarationSyntax TypeDeclaration { get; set; } = null!;
 
         protected HashSet<string> Usings { get; private set; } = null!;
-        protected TypeBase TypeBase { get; set; } = null!;
+        protected ObjectType ResourceType { get; set; } = null!;
 
         public abstract BaseTypeDeclarationSyntax GenerateTypeDeclaration();
 
+        public delegate void AdditionalTypeRequiredDelegate(ObjectType objectType);
+        private readonly AdditionalTypeRequiredDelegate _addtionalTypeRequired;
+
+        protected bool IsAzureResource => ResourceType.Properties.ContainsKey("apiVersion");
         /// <summary>
         /// Adds members to the type as directed by the schema.
         /// </summary>
@@ -56,6 +61,11 @@ namespace BicepAzToDotNet
             Usings ??= new HashSet<string>();
 
             Usings.Add(namespaceName);
+        }
+
+        protected void OnAdditionalTypeRequired(ObjectType resourceType)
+        {
+            _addtionalTypeRequired?.Invoke(resourceType);
         }
     }
 }

@@ -90,9 +90,13 @@ namespace BicepAzToDotNet
             return MakeAccessor(SyntaxKind.GetAccessorDeclaration, body);
         }
 
-        internal static AccessorDeclarationSyntax MakeSetAccessor(BlockSyntax body = null!)
+        internal static AccessorDeclarationSyntax MakeSetAccessor(BlockSyntax body = null!, bool privateSet = false)
         {
-            return MakeAccessor(SyntaxKind.SetAccessorDeclaration, body);
+            if (!privateSet)
+                return MakeAccessor(SyntaxKind.SetAccessorDeclaration, body);
+            
+            return MakeAccessor(SyntaxKind.SetAccessorDeclaration, body)
+                .WithModifiers(SyntaxFactory.TokenList(SyntaxFactory.Token(SyntaxKind.PrivateKeyword)));
         }
 
         internal static AccessorDeclarationSyntax MakeAccessor(SyntaxKind getOrSet, BlockSyntax body)

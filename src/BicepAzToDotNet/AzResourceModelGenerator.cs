@@ -1,7 +1,6 @@
 ﻿using Azure.Bicep.Types.Az;
 using Azure.Bicep.Types.Concrete;
 using Bicep.Core.Resources;
-using System.ComponentModel.DataAnnotations;
 
 namespace BicepAzToDotNet
 {
@@ -9,6 +8,9 @@ namespace BicepAzToDotNet
     {
         private readonly IFileSystem _fileSystem;
         private readonly AzTypeLoader _typeLoader = new();
+        private readonly IDictionary<string, string> _generatedClasses = new Dictionary<string, string>();
+        private readonly Stack<ObjectType> _objectTypeStack = new();
+        private readonly IList<string> _pushedNames = new List<string>();
         public AzResourceModelGenerator() : this(new FileSystem())
         {
 
@@ -22,6 +24,10 @@ namespace BicepAzToDotNet
             var latestApiVersion = _typeLoader.GetLatestApiVersion($"{resourceProviderName}{anchorResName}");
             var resourceIndex = _typeLoader.FilterResourceIndex(resourceProviderName, latestApiVersion);
 
+            var folderPath = @"D:\Code\github\AzureDesignStudio.AzureResources\src\Network";
+
+            _fileSystem.CreateDirectory(folderPath);
+
             //foreach(var ri in resourceIndex)
             //{
             var ri = _typeLoader.LoadTypeIndex().Resources[$"{resourceProviderName}{anchorResName}@{latestApiVersion}"];
@@ -29,19 +35,43 @@ namespace BicepAzToDotNet
                 var typeRef = ResourceTypeReference.Parse(resourceType.Name);
                 var className = typeRef.TypeSegments[^1];
 
-                var csharpText = GenerateClass(className, resourceType.Body.Type);
+            if (resourceType.Body.Type is not ObjectType objType)
+                throw new Exception("Resource type is not an ObjectType.");
+
+
+                var csharpText = GenerateClass(className, objType);
             //}
 
-            return string.Empty;
+            while(_objectTypeStack.Count > 0)
+            {
+                var type = _objectTypeStack.Pop();
+                GenerateClass(type.Name, type);
+            }
+
+            foreach(var c in _generatedClasses)
+            {
+                _fileSystem.WriteAllText($"{folderPath}\\{c.Key}.cs", c.Value);
+            }
+
+            return csharpText;
         }
-        private string GenerateClass(string className, TypeBase resourceType)
+
+        private string GenerateClass(string className, ObjectType resourceType)
         {
-            _fileSystem.CreateDirectory($"D:\\Code\\experiments\\GeneratedTypes");
+            var classGenerator = new ClassGenerator(className, resourceType, OnAdditionalTypeRequired);
+            var classContent = classGenerator.Generate($"GenerateTest", "licensed", resourceType.Name);
 
-            var classGenerator = new ClassGenerator(className, resourceType);
-            var classContent = classGenerator.Generate($"GenerateTest", "licensed", "This is description");
+            _generatedClasses[className.ToPascalCase()] = classContent;
 
-            return string.Empty;
+            return classContent;
+        }
+        private void OnAdditionalTypeRequired(ObjectType resourceType)
+        {
+            if (!_pushedNames.Contains(resourceType.Name))
+            {
+                _objectTypeStack.Push(resourceType);
+                _pushedNames.Add(resourceType.Name);
+            }
         }
     }
 }

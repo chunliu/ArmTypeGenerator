@@ -12,4 +12,5 @@ AnsiConsole.WriteLine();
 var generator = new AzResourceModelGenerator();
 generator.Generate(@"Microsoft.Network/", @"virtualNetworks");
 
+Console.WriteLine("Done!");
 Console.ReadLine();
