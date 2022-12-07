@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System.Reflection;
 
 namespace BicepAzToDotNet
 {
@@ -54,14 +53,14 @@ namespace BicepAzToDotNet
             TypeDeclaration = (TypeDeclaration as ClassDeclarationSyntax)!.AddMembers(members.ToArray());
         }
 
-        private PropertyDeclarationSyntax CreatePropertyDeclaration(string propertyName, ObjectProperty propertyValue)
+        private PropertyDeclarationSyntax CreatePropertyDeclaration(string propertyName, ObjectTypeProperty propertyValue)
         {
             var propType = GetPropertyType(propertyValue.Type.Type);
 
             PropertyDeclarationSyntax propDecl = SyntaxFactory.PropertyDeclaration(propType, propertyName.ToPascalCase())
                 .AddModifiers(GeneratePropertyModifiers(propertyName));
 
-            if (propertyValue.Flags.HasFlag(ObjectPropertyFlags.ReadOnly)
+            if (propertyValue.Flags.HasFlag(ObjectTypePropertyFlags.ReadOnly)
                 && propertyValue.Type.Type is StringLiteralType stringType)
             {
                 propDecl = propDecl.WithExpressionBody(GeneratePropertyExpressionBody(stringType.Value))
@@ -124,12 +123,12 @@ namespace BicepAzToDotNet
             };
         }
 
-        private AttributeSyntax[] GeneratePropertyAttributes(string propertyName, ObjectProperty property)
+        private AttributeSyntax[] GeneratePropertyAttributes(string propertyName, ObjectTypeProperty property)
         {
             var attributes = new List<AttributeSyntax>();
 
             // Required
-            if (property.Flags.HasFlag(ObjectPropertyFlags.Required))
+            if (property.Flags.HasFlag(ObjectTypePropertyFlags.Required))
             {
                 AddUsing(RequiredAttributeNamespaceName);
                 AttributeSyntax requiredAttribute =
@@ -168,8 +167,8 @@ namespace BicepAzToDotNet
 
         private TypeSyntax GetPropertyType(TypeBase typeBase)
         {
-            TypeSyntax typeSyntax = null!;
-            switch(typeBase)
+            TypeSyntax typeSyntax;
+            switch (typeBase)
             {
                 case BuiltInType builtInType:
                     {
