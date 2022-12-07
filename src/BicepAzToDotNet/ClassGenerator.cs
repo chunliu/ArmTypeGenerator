@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Reflection;
 
 namespace BicepAzToDotNet
 {
@@ -29,6 +30,8 @@ namespace BicepAzToDotNet
         private const string JsonPropertyAttributeNamespaceName = "System.Text.Json.Serialization";
         private const string JsonPropertyAttributeName = "JsonPropertyName";
         private const string JsonIgnoreAttributeName = "JsonIgnore";
+
+        private const string AzureResourceAttributeName = "AzureResource";
         public ClassGenerator(string className, ObjectType objectType, AdditionalTypeRequiredDelegate additionalTypeRequired)
             : base(className, objectType, additionalTypeRequired)
         {
@@ -250,7 +253,6 @@ namespace BicepAzToDotNet
         public override BaseTypeDeclarationSyntax GenerateTypeDeclaration()
         {
             var classDeclaration = SyntaxFactory.ClassDeclaration(TypeName)
-                .AddAttributeLists()
                 .AddModifiers(
                     SyntaxFactory.Token(SyntaxKind.PublicKeyword),
                     SyntaxFactory.Token(SyntaxKind.PartialKeyword)
@@ -262,6 +264,10 @@ namespace BicepAzToDotNet
             {
                 baseTypes.Add(SyntaxFactory.SimpleBaseType(SyntaxFactory.ParseTypeName("ResourceBase")));
                 AddUsing("AzureDesignStudio.AzureResources.Base");
+
+                classDeclaration = classDeclaration.AddAttributeLists(
+                    SyntaxFactory.AttributeList(
+                        SyntaxFactory.SingletonSeparatedList(MakeAzureResourceAttribute())));
             }
 
             if (baseTypes.Count > 0)
@@ -272,6 +278,31 @@ namespace BicepAzToDotNet
             }
 
             return classDeclaration;
+        }
+
+        private AttributeSyntax MakeAzureResourceAttribute()
+        {
+            if (!IsAzureResource)
+                return null!;
+
+            var resType = (ResourceType.Properties["type"].Type.Type as StringLiteralType)!.Value;
+            var apiVersion = (ResourceType.Properties["apiVersion"].Type.Type as StringLiteralType)!.Value;
+
+            return SyntaxFactory.Attribute(
+                SyntaxFactory.IdentifierName(AzureResourceAttributeName),
+                SyntaxFactory.AttributeArgumentList(
+                    SyntaxFactory.SeparatedList(
+                        new AttributeArgumentSyntax[]
+                        {
+                            SyntaxFactory.AttributeArgument(
+                                SyntaxFactory.LiteralExpression(
+                                    SyntaxKind.StringLiteralExpression,
+                                    SyntaxFactory.Literal(resType))),
+                            SyntaxFactory.AttributeArgument(
+                                SyntaxFactory.LiteralExpression(
+                                    SyntaxKind.StringLiteralExpression,
+                                    SyntaxFactory.Literal(apiVersion))),
+                        })));
         }
     }
 }

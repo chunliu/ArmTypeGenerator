@@ -19,4 +19,13 @@
     <ProjectReference Include="..\BicepAzToDotNet\BicepAzToDotNet.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Configs\AppConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Configs\NetworkConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

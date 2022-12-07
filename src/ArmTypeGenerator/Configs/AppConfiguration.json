@@ -1,0 +1,8 @@
+{
+  "rootOutputDirectory": "D:\\Code\\github\\AzureDesignStudio\\src\\AzureDesignStudio.AzureResources\\",
+  "copyrightNotice": "// Licensed under the MIT License. See LICENSE in the project root for license information.\n\r",
+  "rootNamespace": "AzureDesignStudio.AzureResources",
+  "azResourceConfigPath": [
+    "NetworkConfig.json"
+  ]
+}

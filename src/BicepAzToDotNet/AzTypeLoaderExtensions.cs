@@ -13,10 +13,10 @@ namespace BicepAzToDotNet
                 .ToDictionary(r => r.Key, r => r.Value);
         }
 
-        internal static string GetLatestApiVersion(this AzTypeLoader typeLoader, string resourceProviderName)
+        internal static string GetLatestApiVersion(this AzTypeLoader typeLoader, string anchorResourceType)
         {
             var apiVersions = typeLoader.LoadTypeIndex().Resources
-                .Where(r => r.Key.Contains(resourceProviderName))
+                .Where(r => r.Key.Contains(anchorResourceType))
                 .Select(r => r.Key.Split('@')[1])
                 .OrderByDescending(s => s)
                 .GroupBy(s => s)

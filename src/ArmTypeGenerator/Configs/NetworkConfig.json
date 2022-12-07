@@ -1,0 +1,10 @@
+{
+  "resourceDirectory": "Network",
+  "namespace": "Network",
+  "apiVersion": "2022-05-01",
+  "anchorResourceType": "Microsoft.Network/virtualNetworks",
+  "resourceTypes": [
+    "Microsoft.Network/virtualNetworks",
+    "Microsoft.Network/virtualNetworks/subnets"
+  ]
+}
