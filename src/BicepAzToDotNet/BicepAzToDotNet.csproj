@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Bicep.Core" Version="0.13.1" />
     <PackageReference Include="Microsoft.CodeAnalysis" Version="4.4.0" />
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.5.119">
       <PrivateAssets>all</PrivateAssets>
@@ -15,4 +14,13 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Azure.Bicep.Types">
+      <HintPath>..\..\..\bicep-types-az\src\Bicep.Types.Az\bin\Debug\netstandard2.0\Azure.Bicep.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Bicep.Types.Az">
+      <HintPath>..\..\..\bicep-types-az\src\Bicep.Types.Az\bin\Debug\netstandard2.0\Azure.Bicep.Types.Az.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+	
 </Project>

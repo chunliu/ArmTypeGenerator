@@ -12,7 +12,7 @@ namespace ArmTypeGenerator
     internal static class Helper
     {
         internal static AppConfiguration AppConfiguration { get; set; } = default!;
-        internal static List<AzResourceConfiguration> AzResourceConfigs { get; set; } = new();
+        internal static List<AzResourceProviderConfig> AzResourceProviderConfigs { get; set; } = new();
         internal static void LoadAppConfiguration()
         {
             var config = File.ReadAllText("Configs\\AppConfiguration.json");
@@ -23,17 +23,17 @@ namespace ArmTypeGenerator
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 })!;
 
-            foreach(var configPath in AppConfiguration.AzResourceConfigPath)
+            foreach(var configPath in AppConfiguration.AzResourceProviderConfigs)
             {
                 var jsonText = File.ReadAllText($"Configs\\{configPath}");
-                var resConfig = JsonSerializer.Deserialize<AzResourceConfiguration>(
+                var resConfig = JsonSerializer.Deserialize<AzResourceProviderConfig>(
                     jsonText,
                     new JsonSerializerOptions
                     {
                         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                     })!;
 
-                AzResourceConfigs.Add(resConfig);
+                AzResourceProviderConfigs.Add(resConfig);
             }
         }
 
@@ -44,14 +44,13 @@ namespace ArmTypeGenerator
                     .Title("Choose an option below:")
                     .MoreChoicesText("[grey](Move up and down to reveal more options)[/]")
                     .AddChoices(new[] {
-                        0, 1, 2, 3
+                        0, 1, 2
                     })
                     .UseConverter(opt => opt switch
                     {
-                        0 => "1. Get latest api version",
-                        1 => "2. Get latest json schemas for RPs",
-                        2 => "3. Gererate types for RPs",
-                        3 => "4. Exit",
+                        0 => "1. Check api version",
+                        1 => "2. Generate types for RPs",
+                        2 => "3. Exit",
                         _ => ""
                     }));
 
@@ -59,6 +58,9 @@ namespace ArmTypeGenerator
             {
                 case 0:
                     await TypeGenerator.GetLatestApiVersions(); 
+                    break;
+                case 1:
+                    await TypeGenerator.GenerateTypesForResourceProviders();
                     break;
                 default:
                     break;

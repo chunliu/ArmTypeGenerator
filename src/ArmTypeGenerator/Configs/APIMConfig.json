@@ -1,0 +1,10 @@
+{
+  "resourceProviderName": "Microsoft.ApiManagement",
+  "resourceDirectory": "ApiManagement",
+  "namespace": "ApiManagement",
+  "apiVersion": "2022-04-01-preview",
+  "anchorResourceType": "Microsoft.ApiManagement/service",
+  "resourceTypes": [
+    "Microsoft.ApiManagement/service"
+  ]
+}

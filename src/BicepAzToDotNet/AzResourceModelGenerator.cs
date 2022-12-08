@@ -1,6 +1,5 @@
 ﻿using Azure.Bicep.Types.Az;
 using Azure.Bicep.Types.Concrete;
-using Bicep.Core.Resources;
 
 namespace BicepAzToDotNet
 {
@@ -29,9 +28,6 @@ namespace BicepAzToDotNet
         }
         public void Generate()
         {
-            //var latestApiVersion = _typeLoader.GetLatestApiVersion($"{resourceProviderName}{anchorResName}");
-            //var resourceIndex = _typeLoader.FilterResourceIndex(resourceProviderName, latestApiVersion);
-
             var folderPath = _settings.OutputDirectory;
             _fileSystem.CreateDirectory(folderPath);
 

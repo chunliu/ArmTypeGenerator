@@ -1,0 +1,11 @@
+{
+  "resourceProviderName": "Microsoft.Sql",
+  "resourceDirectory": "Sql",
+  "namespace": "Sql",
+  "apiVersion": "2022-05-01-preview",
+  "anchorResourceType": "Microsoft.Sql/servers/databases",
+  "resourceTypes": [
+    "Microsoft.Sql/servers",
+    "Microsoft.Sql/servers/databases"
+  ]
+}

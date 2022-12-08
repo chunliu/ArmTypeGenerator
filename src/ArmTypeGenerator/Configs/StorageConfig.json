@@ -1,0 +1,10 @@
+{
+  "resourceProviderName": "Microsoft.Storage",
+  "resourceDirectory": "Storage",
+  "namespace": "Storage",
+  "apiVersion": "2022-09-01",
+  "anchorResourceType": "Microsoft.Storage/storageAccounts",
+  "resourceTypes": [
+    "Microsoft.Storage/storageAccounts"
+  ]
+}

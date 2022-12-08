@@ -1,0 +1,10 @@
+{
+  "resourceProviderName": "Microsoft.Compute",
+  "resourceDirectory": "Compute",
+  "namespace": "Compute",
+  "apiVersion": "2022-08-01",
+  "anchorResourceType": "Microsoft.Compute/virtualMachines",
+  "resourceTypes": [
+    "Microsoft.Compute/virtualMachines"
+  ]
+}

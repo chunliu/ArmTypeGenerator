@@ -1,10 +1,17 @@
 {
+  "resourceProviderName": "Microsoft.Network",
   "resourceDirectory": "Network",
   "namespace": "Network",
-  "apiVersion": "2022-05-01",
+  "apiVersion": "2022-07-01",
   "anchorResourceType": "Microsoft.Network/virtualNetworks",
   "resourceTypes": [
     "Microsoft.Network/virtualNetworks",
-    "Microsoft.Network/virtualNetworks/subnets"
+    "Microsoft.Network/virtualNetworks/subnets",
+    "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+    "Microsoft.Network/publicIPAddresses",
+    "Microsoft.Network/bastionHosts",
+    "Microsoft.Network/firewallPolicies",
+    "Microsoft.Network/azureFirewalls",
+    "Microsoft.Network/applicationGateways"
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "resourceProviderName": "Microsoft.Web",
+  "resourceDirectory": "Web",
+  "namespace": "Web",
+  "apiVersion": "2022-03-01",
+  "anchorResourceType": "Microsoft.Web/sites",
+  "resourceTypes": [
+    "Microsoft.Web/sites",
+    "Microsoft.Web/serverfarms",
+    "Microsoft.Web/sites/networkConfig"
+  ]
+}

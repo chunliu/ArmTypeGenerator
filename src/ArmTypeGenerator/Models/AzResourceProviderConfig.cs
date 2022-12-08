@@ -1,8 +1,9 @@
 ﻿namespace ArmTypeGenerator.Models;
 
-internal class AzResourceConfiguration
+internal class AzResourceProviderConfig
 {
     // Relative path to the root output directory
+    public string ResourceProviderName { get; set; } = default!;
     public string ResourceDirectory { get; set; } = default!;
     public string Namespace { get; set; } = default!;
     public string ApiVersion { get; set; } = default!;

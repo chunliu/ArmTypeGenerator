@@ -107,7 +107,7 @@ namespace BicepAzToDotNet
 
         private AccessorDeclarationSyntax[] GeneratePropertyAccessors(string propertyName)
         {
-            if (PropsToJsonIgnore.Contains(propertyName))
+            if (IsAzureResource && PropsToJsonIgnore.Contains(propertyName))
             {
                 return new AccessorDeclarationSyntax[]
                 {
@@ -138,7 +138,7 @@ namespace BicepAzToDotNet
             }
 
             AttributeSyntax jsonPropertyAttribute;
-            if (PropsToJsonIgnore.Contains(propertyName))
+            if (IsAzureResource && PropsToJsonIgnore.Contains(propertyName))
             {
                 // JsonIgnore
                 jsonPropertyAttribute =
@@ -174,7 +174,7 @@ namespace BicepAzToDotNet
                     {
                         typeSyntax = builtInType.Kind switch
                         {
-                            // BuiltInTypeKind.Any => TODO,
+                            BuiltInTypeKind.Any => SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.ObjectKeyword)),
                             BuiltInTypeKind.Null => SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.NullKeyword)),
                             BuiltInTypeKind.Bool => SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.BoolKeyword)),
                             BuiltInTypeKind.Int => SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.IntKeyword)),
